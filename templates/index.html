@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Item - Item Disposal Helper{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <i class="fas fa-camera fa-3x text-primary mb-3"></i>
+                    <h2 class="card-title">Upload an Item to Identify</h2>
+                    <p class="card-text text-muted">
+                        Take a photo or upload an image of an item you want to dispose of. 
+                        We'll help you identify it and suggest the best disposal options.
+                    </p>
+                </div>
+
+                <form action="{{ url_for('analyze') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <div class="mb-4">
+                        <label for="image" class="form-label">
+                            <i class="fas fa-image me-2"></i>Select Image File
+                        </label>
+                        <input type="file" 
+                               class="form-control" 
+                               id="image" 
+                               name="image" 
+                               accept="image/*" 
+                               required>
+                        <div class="form-text">
+                            <i class="fas fa-info-circle me-1"></i>
+                            Supported formats: PNG, JPG, JPEG, GIF, BMP, WEBP
+                        </div>
+                        <div class="invalid-feedback">
+                            Please select an image file.
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search me-2"></i>Analyze Item
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- How it works section -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-question-circle me-2"></i>How It Works
+                </h5>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-3">
+                        <i class="fas fa-upload fa-2x text-primary mb-2"></i>
+                        <h6>1. Upload</h6>
+                        <small class="text-muted">Take or upload a photo of your item</small>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <i class="fas fa-search fa-2x text-info mb-2"></i>
+                        <h6>2. Identify</h6>
+                        <small class="text-muted">AI identifies what the item is</small>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <i class="fas fa-recycle fa-2x text-success mb-2"></i>
+                        <h6>3. Dispose</h6>
+                        <small class="text-muted">Get suggestions for selling, donating, or recycling</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
+// Image preview functionality
+document.getElementById('image').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        // Optional: Add image preview here if needed
+        console.log('File selected:', file.name);
+    }
+});
+</script>
+{% endblock %}
