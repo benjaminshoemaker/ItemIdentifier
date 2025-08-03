@@ -31,7 +31,9 @@ def analyze():
         
         # Validate file type
         allowed_extensions = {'png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp'}
-        file_extension = image.filename.rsplit('.', 1)[1].lower() if '.' in image.filename else ''
+        file_extension = ''
+        if image.filename and '.' in image.filename:
+            file_extension = image.filename.rsplit('.', 1)[1].lower()
         
         if file_extension not in allowed_extensions:
             flash('Invalid file type. Please upload an image file (PNG, JPG, JPEG, GIF, BMP, WEBP).', 'error')
