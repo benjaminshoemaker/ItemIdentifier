@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Upload Item - Item Disposal Helper{% endblock %}
+{% block title %}Declutter Responsibly - Item Disposal Helper{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
         <div class="card">
             <div class="card-body">
+
+                <!-- Motivational Tagline -->
+                <div class="text-center text-muted mb-2">
+                    <em>Simplify your space. Reduce waste. Give your stuff a second life.</em>
+                </div>
+
+                <!-- Main Title + Description -->
                 <div class="text-center mb-4">
                     <i class="fas fa-camera fa-3x text-primary mb-3"></i>
-                    <h2 class="card-title">Upload an Item to Identify</h2>
+                    <h2 class="card-title">Declutter Responsibly</h2>
                     <p class="card-text text-muted">
-                        Take a photo or upload an image of an item you want to dispose of. 
-                        We'll help you identify it and suggest the best disposal options.
+                        Snap a photo of anything you no longer need — we'll identify it and help you sell, donate, or recycle it sustainably.
                     </p>
                 </div>
 
+                <!-- Upload Form -->
                 <form action="{{ url_for('analyze') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                     <div class="mb-4">
                         <label for="image" class="form-label">
@@ -45,6 +52,23 @@
             </div>
         </div>
 
+        <!-- Value Proposition Banner -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    <i class="fas fa-bullseye me-2"></i>Why Use This App?
+                </h5>
+                <ul class="list-unstyled text-center mb-0">
+                    <li class="mb-2">
+                        🧹 <strong>Get rid of the clutter in your home</strong>
+                    </li>
+                    <li>
+                        ♻️ <strong>Dispose of your items the responsible way</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!-- How it works section -->
         <div class="card mt-4">
             <div class="card-body">
@@ -60,16 +84,17 @@
                     <div class="col-md-4 mb-3">
                         <i class="fas fa-search fa-2x text-info mb-2"></i>
                         <h6>2. Identify</h6>
-                        <small class="text-muted">AI identifies what the item is</small>
+                        <small class="text-muted">We figure out what it is</small>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <i class="fas fa-recycle fa-2x text-success mb-2"></i>
-                        <h6>3. Dispose</h6>
-                        <small class="text-muted">Get suggestions for selling, donating, or recycling</small>
+                        <i class="fas fa-tasks fa-2x text-success mb-2"></i>
+                        <h6>3. Take Action</h6>
+                        <small class="text-muted">Get the best options to sell, donate, recycle, or discard</small>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
