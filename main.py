@@ -31,11 +31,6 @@ def analyze():
 
     response = requests.post(url, json=body)
     data = response.json()
-    
-    # Debug: Print the full API response
-    print("=== FULL GOOGLE VISION API RESPONSE ===")
-    print(f"Response JSON: {data}")
-    print("=== END API RESPONSE ===")
 
     label = "Unknown"
 
