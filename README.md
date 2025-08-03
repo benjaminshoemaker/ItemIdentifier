@@ -1,4 +1,4 @@
-# LetGo – Item Disposal Helped
+# LetGo – Item Disposal Helper
 
 **LetGo** is a smart tool that helps you identify household items from a photo and take the right action — whether that’s selling, donating, or disposing of them responsibly.
 
